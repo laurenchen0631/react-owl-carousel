@@ -1,0 +1,53 @@
+{
+  "name": "react-owl-carousel",
+  "version": "0.0.0",
+  "description": "React.js + Owl Carousel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "examples": "webpack-dev-server --config examples/webpack.config.js --content-base examples --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fandora/react-owl-carousel.git"
+  },
+  "keywords": [
+    "react",
+    "OwlCarousel",
+    "gallery"
+  ],
+  "author": "xhriman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fandora/react-owl-carousel/issues"
+  },
+  "homepage": "https://github.com/Fandora/react-owl-carousel#readme",
+  "devDependencies": {
+    "babel-core": "^5.8.12",
+    "babel-loader": "^5.3.2",
+    "browserify": "~10.2.6",
+    "chai": "~3.2.0",
+    "del": "~1.2.0",
+    "gulp": "~3.9.0",
+    "gulp-connect": "~2.2.0",
+    "gulp-react": "~3.0.1",
+    "gulp-reactify": "~3.0.1",
+    "gulp-rename": "~1.2.2",
+    "gulp-uglify": "~1.2.0",
+    "gulp-util": "~3.0.5",
+    "mocha": "^2.2.5",
+    "mocha-loader": "^0.7.1",
+    "mochify": "^2.11.0",
+    "react": "^0.13.3",
+    "react-hot-loader": "^1.2.8",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.3.0",
+    "webpack": "^1.10.5",
+    "webpack-dev-server": "^1.10.1"
+  },
+  "dependencies": {
+    "classnames": "^2.1.3",
+    "lodash": "^3.10.0"
+  }
+}
