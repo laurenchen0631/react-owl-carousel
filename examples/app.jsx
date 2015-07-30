@@ -3,8 +3,7 @@
 'use strict';
 
 var React = require('react');
-import TestOne from 'react-owl-carousel/TestOne';
-import TestTwo from 'react-owl-carousel/TestTwo';
+import ROC from 'react-owl-carousel';
 
 var Main = React.createClass({
 	getInitialState: function() {
@@ -12,16 +11,15 @@ var Main = React.createClass({
 			switch: true
 		};
 	},
-	_toggle() {
-		this.setState({
-			switch: !this.state.switch
-		});
-	},
+
 	render() {
 		return (
 			<div>
-				<input type="button" onClick={this._toggle} value="Press!"/>
-				{this.state.switch ? <TestOne /> : <TestTwo />}
+				<ROC.OneSlide>
+					<div class="item"><img src="imgs/fullimage1.jpg" alt="The Last of us"/></div>
+				  <div class="item"><img src="imgs/fullimage2.jpg" alt="GTA V"/></div>
+				  <div class="item"><img src="imgs/fullimage3.jpg" alt="Mirror Edge"/></div>
+				</ROC.OneSlide>
 			</div>
 		);
 	},

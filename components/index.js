@@ -1,2 +1,5 @@
-export {Router} from './TestOne';
-export {Link} from './TestTwo'
+module.exports = {
+
+	OneSlide: require('./OneSlide'),
+
+};
