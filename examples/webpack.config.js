@@ -16,7 +16,7 @@ module.exports = {
 
 	module: {
 		loaders: [{
-			test: /\.jsx?$/,
+			test: /\.(js|jsx)$/,
 			loaders: ['react-hot', 'babel'],
 			include: [
 				path.resolve(process.cwd(), "components"),
@@ -34,7 +34,7 @@ module.exports = {
 	},
 
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
+		// new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin(),
 	],
 };

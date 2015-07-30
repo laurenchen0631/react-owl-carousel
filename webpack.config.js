@@ -7,7 +7,8 @@ module.exports = {
 
 	output: {
 		library: 'ReactOwlCarousel',
-		libraryTarget: 'umd'
+		libraryTarget: 'umd',
+		path: 'lib',
 	},
 
 	externals: [
