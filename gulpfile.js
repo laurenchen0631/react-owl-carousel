@@ -12,7 +12,7 @@ gulp.task('clean', function(cb){
 	del('lib/*', cb);
 });
 
-gulp.task("build", ['clean', 'dev', 'prod']);
+gulp.task("release", ['clean', 'dev', 'prod']);
 
 gulp.task('dev', function(cb){
 	config.output.filename = 'ReactOwlCarousel.js';
