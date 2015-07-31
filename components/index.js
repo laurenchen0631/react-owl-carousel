@@ -1,5 +1,10 @@
+'use strict';
+
+require('./owl.carousel.css');
+require('./owl.carousel');
+
 module.exports = {
 
-	OneSlide: require('./OneSlide'),
+	OwlCarousel: require('./OwlCarousel'),
 
 };

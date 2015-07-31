@@ -12,6 +12,7 @@
 /*global dragMove: false, dragEnd: false, $, jQuery, alert, window, document */
 /*jslint nomen: true, continue:true */
 
+'use strict';
 if (typeof Object.create !== "function") {
     Object.create = function (obj) {
         function F() {}
@@ -1001,7 +1002,8 @@ if (typeof Object.create !== "function") {
                     handlers,
                     owlStopEvent;
 
-                ev.target = ev.target || ev.srcElement;
+                // Cannot set property target of #<Event> which has only a getter
+                // ev.target = ev.target || ev.srcElement;
 
                 locals.dragging = false;
 
@@ -1183,7 +1185,7 @@ if (typeof Object.create !== "function") {
             function showImage() {
                 $item.data("owl-loaded", "loaded").removeClass("loading");
                 $lazyImg.removeAttr("data-src");
-                if (base.options.lazyEffect === "fade") {
+                if (base.options.lazyEffect) {
                     $lazyImg.fadeIn(400);
                 } else {
                     $lazyImg.show();
@@ -1448,7 +1450,7 @@ if (typeof Object.create !== "function") {
             $.data(this, "owlCarousel", carousel);
         });
     };
-
+    
     $.fn.owlCarousel.options = {
 
         items : 5,

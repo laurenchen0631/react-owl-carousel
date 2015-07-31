@@ -1,5 +1,11 @@
+.item img{
+	display: block;
+	width: 100%,
+	height: auto;
+}
+
 /*
-* 	Owl Carousel Owl Demo Theme 
+* 	Owl Carousel Owl Demo Theme
 *	v1.3.2
 */
 
@@ -75,5 +81,5 @@
 /* preloading images */
 .owl-item.loading{
 	min-height: 150px;
-	background: url(AjaxLoader.gif) no-repeat center center
+	/*background: url(AjaxLoader.gif) no-repeat center center*/
 }

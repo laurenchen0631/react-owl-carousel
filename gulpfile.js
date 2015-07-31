@@ -63,7 +63,7 @@ gulp.task("server", function(callback) {
 		contentBase : 'examples',
 		publicPath : config.output.publicPath,
 		hot : true,
-		noInfo: true, // display no info to console (only warnings and errors)
+		// noInfo: true, // display no info to console (only warnings and errors)
 		historyApiFallback : true,
 		stats : { colors: true },
 	})

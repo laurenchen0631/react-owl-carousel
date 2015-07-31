@@ -29,6 +29,7 @@
     "babel-loader": "^5.3.2",
     "browserify": "~10.2.6",
     "chai": "~3.2.0",
+    "css-loader": "^0.15.6",
     "del": "~1.2.0",
     "eslint-plugin-react": "^2.3.0",
     "gulp": "~3.9.0",
@@ -46,6 +47,7 @@
     "phantomjs-polyfill": "0.0.1",
     "react": "^0.13.3",
     "react-hot-loader": "^1.2.8",
+    "style-loader": "^0.12.3",
     "vinyl-source-stream": "^1.1.0",
     "webpack": "^1.10.5",
     "webpack-dev-server": "^1.10.1"

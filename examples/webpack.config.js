@@ -15,14 +15,24 @@ module.exports = {
 	},
 
 	module: {
-		loaders: [{
-			test: /\.(js|jsx)$/,
-			loaders: ['react-hot', 'babel'],
-			include: [
-				path.resolve(process.cwd(), "components"),
-				path.resolve(process.cwd(), "examples")
-			],
-		}]
+		loaders: [
+			{
+				test: /\.(js|jsx)$/,
+				loaders: ['react-hot', 'babel'],
+				include: [
+					path.resolve(process.cwd(), "components"),
+					path.resolve(process.cwd(), "examples")
+				],
+			},
+			{
+				test: /\.css$/,
+				loader: "style-loader!css-loader",
+				include: [
+					path.resolve(process.cwd(), "components"),
+					path.resolve(process.cwd(), "examples")
+				],
+			},
+		]
 	},
 
 	resolve: {
