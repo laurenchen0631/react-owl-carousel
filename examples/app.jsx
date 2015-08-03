@@ -3,7 +3,7 @@
 'use strict';
 
 var React = require('react');
-import ROC from 'react-owl-carousel';
+import OwlCarousel from 'react-owl-carousel';
 
 var Main = React.createClass({
 
@@ -48,9 +48,9 @@ var Main = React.createClass({
 
 		return (
 			<div>
-				<ROC.OwlCarousel ref="car" options={this.state.options}>
+				<OwlCarousel ref="car" options={this.state.options}>
 					{this.state.items}
-				</ROC.OwlCarousel>
+				</OwlCarousel>
 
 				<button onClick={function(e){this.refs.car.prev();}.bind(this)}>
 					prev

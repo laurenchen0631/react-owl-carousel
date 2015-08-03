@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import _ from 'lodash';
 /**
 * http://owlgraphic.com/owlcarousel/demos/one.html
 *

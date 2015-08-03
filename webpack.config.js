@@ -28,7 +28,14 @@ module.exports = {
 				test: /\.(js|jsx)$/,
 				include: path.resolve(process.cwd(), "components"),
 				loader: 'babel?loose=all'
-			}
+			},
+			{
+				test: /\.css$/,
+				loader: "style-loader!css-loader",
+				include: [
+					path.resolve(process.cwd(), "components")
+				],
+			},
 		]
 	},
 

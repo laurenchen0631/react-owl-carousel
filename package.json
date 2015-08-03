@@ -2,7 +2,7 @@
   "name": "react-owl-carousel",
   "version": "0.0.0",
   "description": "React.js + Owl Carousel",
-  "main": "index.js",
+  "main": "lib/ReactOwlCarousel.js",
   "scripts": {
     "test": "karma start test/config/karma.conf.js --single-run",
     "start": "webpack-dev-server --port 3000 --config examples/webpack.config.js --content-base examples --hot",
