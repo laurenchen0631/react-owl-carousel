@@ -31,7 +31,7 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				loader: "css-loader",
+				loader: "style-loader!css-loader",
 				include: path.resolve(process.cwd(), "components")
 			},
 		]

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "karma start test/config/karma.conf.js --single-run",
     "start": "webpack-dev-server --port 3000 --config examples/webpack.config.js --content-base examples --hot",
-    "build": "webpack lib/ReactOwlCarousel.js && webpack -p lib/ReactOwlCarousel.min.js"
+    "build": "webpack lib/ReactOwlCarousel.js"
   },
   "repository": {
     "type": "git",
