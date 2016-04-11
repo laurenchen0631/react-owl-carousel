@@ -1,11 +1,12 @@
 var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
+var minimize = process.argv.indexOf('--minimize') !== -1;
 
 var config = {
-	devtool: 'source-map',
+	devtool: 'eval',
 	entry:  {
-		index: './components/OwlCarousel.jsx'
+		OwlCarousel: './components/OwlCarousel.jsx'
 	},
 	resolve: {
 		extensions: ["", ".jsx", ".js"],
@@ -42,11 +43,6 @@ var config = {
 			}
 		}),
 		new webpack.optimize.DedupePlugin(),
-		new webpack.optimize.UglifyJsPlugin({
-			compressor: {
-				warnings: false
-			}
-		})
 	],
 	module: {
 		loaders: [
@@ -73,5 +69,17 @@ var config = {
 		return [autoprefixer];
 	},
 };
+
+if (minimize) {
+	config.plugins.push(
+		new webpack.optimize.UglifyJsPlugin({
+			compressor: {
+				warnings: false
+			}
+		})
+	);
+	config.devtool = 'source-map';
+	config.output.filename = "[name].min.js";
+}
 
 module.exports = config;
