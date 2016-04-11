@@ -1,6 +1,9 @@
 'use strict';
 
 import React from 'react';
+import '../src/owl.carousel.css';
+import '../src/owl.carousel.js';
+
 /**
 * http://owlgraphic.com/owlcarousel/demos/one.html
 *
@@ -212,4 +215,4 @@ const OwlCarousel = React.createClass({
 
 });
 
-module.exports = OwlCarousel;
+export default OwlCarousel;
