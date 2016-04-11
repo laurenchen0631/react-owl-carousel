@@ -1,6 +1,6 @@
 {
   "name": "react-owl-carousel",
-  "version": "0.13.4",
+  "version": "0.14.0",
   "description": "React.js + Owl Carousel",
   "main": "lib/OwlCarousel.js",
   "scripts": {
@@ -26,7 +26,8 @@
   },
   "homepage": "https://github.com/seal789ie/react-owl-carousel#readme",
   "peerDependencies": {
-    "react": "~0.13.3"
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
   },
   "devDependencies": {
     "autoprefixer": "~6.3.1",
@@ -50,8 +51,9 @@
     "file-loader": "~0.8.5",
     "node-sass": "~3.4.2",
     "postcss-loader": "~0.8.0",
+    "react": "~0.14.8",
+    "react-dom": "~0.14.8",
     "rimraf": "~2.5.1",
-    "react": "~0.13.3",
     "sass-loader": "~3.1.2",
     "style-loader": "~0.13.0",
     "url-loader": "~0.5.7",

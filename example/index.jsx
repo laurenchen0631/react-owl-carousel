@@ -2,14 +2,16 @@
 
 'use strict';
 
-var React = require('react');
+import React from 'react';
+import ReactDOM from 'react-dom';
 import OwlCarousel from 'react-owl-carousel';
 import './style.css';
 
-var Main = React.createClass({
+class App extends React.Component {
+	constructor(props, context) {
+		super(props, context);
 
-	getInitialState: function() {
-		return {
+		this.state = {
 			items: [
 				<div key={1} className="item"><img src="/img/fullimage1.jpg" alt="The Last of us"/></div>,
 				<div key={2} className="item"><img src="/img/fullimage2.jpg" alt="GTA V"/></div>,
@@ -22,22 +24,21 @@ var Main = React.createClass({
 			singleItem : true,
 			autoPlay : true,
 		};
-	},
+	}
 
-	_addItem : function() {
-		var items = this.state.items;
+	addItem() {
+		let items = this.state.items;
 		items.push(<div key={this.state.items.length+1} className="item"><img src="/img/fullimage2.jpg" alt="GTA V"/></div>);
 		this.setState({items});
-	},
+	}
 
-	_newOptions : function() {
+	newOptions() {
 		this.setState({
 			navigation : false, // Show next and prev buttons
 		});
-	},
+	}
 
 	render() {
-
 		return (
 			<div>
 				<OwlCarousel
@@ -51,42 +52,40 @@ var Main = React.createClass({
 					{this.state.items}
 				</OwlCarousel>
 
-				<button onClick={function(e){this.refs.car.prev();}.bind(this)}>
+				<button onClick={() => this.this.refs.car.prev()}>
 					prev
 				</button>
 
-				<button onClick={function(e){this.refs.car.next();}.bind(this)}>
+				<button onClick={() => this.this.refs.car.next()}>
 					next
 				</button>
 
-				<button onClick={function(e){this.refs.car.goTo(0);}.bind(this)}>
+				<button onClick={() => this.this.refs.car.goTo(0)}>
 					goTo
 				</button>
 
-				<button onClick={function(e){this.refs.car.jumpTo(0);}.bind(this)}>
+				<button onClick={() => this.this.refs.car.jumpTo(0)}>
 					jumpTo
 				</button>
 
-				<button onClick={function(e){this.refs.car.play();}.bind(this)}>
+				<button onClick={() => this.this.refs.car.play()}>
 					play
 				</button>
 
-				<button onClick={function(e){this.refs.car.stop();}.bind(this)}>
+				<button onClick={() => this.this.refs.car.stop()}>
 					stop
 				</button>
 
-				<button onClick={this._addItem}>
+				<button onClick={this.addItem.bind(this)}>
 					Add New
 				</button>
 
-				<button onClick={this._newOptions}>
+				<button onClick={this.newOptions.bind(this)}>
 					New Options
 				</button>
 			</div>
 		);
-	},
+	}
+}
 
-
-});
-
-React.render(<Main />, document.body);
+ReactDOM.render(<App />, document.getElementById('root'));

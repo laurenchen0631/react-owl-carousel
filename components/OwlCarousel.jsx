@@ -1,6 +1,7 @@
 'use strict';
 
-import React from 'react';
+import React, {PropTypes} from 'react';
+import {findDOMNode} from 'react-dom';
 import '../src/owl.carousel.css';
 import '../src/owl.carousel.js';
 
@@ -55,109 +56,33 @@ const Owl_Carousel_Options = [
 *		stop()
 */
 
-const OwlCarousel = React.createClass({
+class OwlCarousel extends React.Component {
+	constructor(props, context) {
+		super(props, context);
 
-	getDefaultProps() {
-		return {
-			style : {},
-		};
-	},
-
-	propTypes: {
-		children : React.PropTypes.oneOfType([
-			React.PropTypes.element,
-			React.PropTypes.arrayOf(React.PropTypes.element.isRequired),
-		]).isRequired,
-
-		style : React.PropTypes.object,
-		id : React.PropTypes.string,
-
-		items : React.PropTypes.number,
-		itemsCustom : React.PropTypes.arrayOf(React.PropTypes.arrayOf(React.PropTypes.number).isRequired),
-		itemsDesktop : React.PropTypes.arrayOf(React.PropTypes.number.isRequired),
-		itemsDesktopSmall : React.PropTypes.arrayOf(React.PropTypes.number.isRequired),
-		itemsTablet : React.PropTypes.arrayOf(React.PropTypes.number.isRequired),
-		itemsTabletSmall : React.PropTypes.arrayOf(React.PropTypes.number.isRequired),
-		itemsMobile : React.PropTypes.arrayOf(React.PropTypes.number.isRequired),
-		singleItem : React.PropTypes.bool,
-		itemsScaleUp : React.PropTypes.bool,
-
-		slideSpeed : React.PropTypes.number,
-		paginationSpeed : React.PropTypes.number,
-		rewindSpeed : React.PropTypes.number,
-
-		autoPlay : React.PropTypes.oneOfType([
-			React.PropTypes.bool,
-			React.PropTypes.number,
-		]),
-		stopOnHover : React.PropTypes.bool,
-
-		navigation : React.PropTypes.bool,
-		navigationText : React.PropTypes.arrayOf(React.PropTypes.string),
-		rewindNav : React.PropTypes.bool,
-		scrollPerPage : React.PropTypes.bool,
-
-		pagination : React.PropTypes.bool,
-		paginationNumbers : React.PropTypes.bool,
-
-		responsive : React.PropTypes.bool,
-		responsiveRefreshRate : React.PropTypes.number,
-		responsiveBaseWidth : function(props, propName, componentName) {
-			if (
-				props[propName] &&
-				!$(props[propName]).length
-			) {
-				return new Error('React-owl-carousel: the props `responsiveBaseWidth` needs jQuery selector.');
-			}
-		},
-
-		baseClass : React.PropTypes.string,
-		theme : React.PropTypes.string,
-
-		lazyLoad : React.PropTypes.bool,
-		lazyFollow : React.PropTypes.bool,
-		lazyEffect : React.PropTypes.bool,
-
-		autoHeight : React.PropTypes.bool,
-
-		jsonPath : React.PropTypes.string,
-		jsonSuccess : React.PropTypes.func,
-
-		dragBeforeAnimFinish : React.PropTypes.bool,
-		mouseDrag : React.PropTypes.bool,
-		touchDrag : React.PropTypes.bool,
-
-		addClassActive : React.PropTypes.bool,
-
-		//build-in transitionStyle: 'fade', 'backSlide', 'goDown', 'scaleUp'
-		transitionStyle : React.PropTypes.string,
-
-		beforeUpdate : React.PropTypes.func,
-		afterUpdate : React.PropTypes.func,
-		beforeInit : React.PropTypes.func,
-		afterInit : React.PropTypes.func,
-		beforeMove : React.PropTypes.func,
-		afterMove : React.PropTypes.func,
-		afterAction : React.PropTypes.func,
-		startDragging : React.PropTypes.func,
-		afterLazyLoad: React.PropTypes.func,
-	},
+		this.next = () => $(findDOMNode(this)).data('owlCarousel').next();
+		this.prev = () => $(findDOMNode(this)).data('owlCarousel').prev();
+		this.goTo = (x) => $(findDOMNode(this)).data('owlCarousel').goTo(x);
+		this.jumpTo = (x) => $(findDOMNode(this)).data('owlCarousel').jumpTo(x);
+		this.play = () => $(findDOMNode(this)).data('owlCarousel').play();
+		this.stop = () => $(findDOMNode(this)).data('owlCarousel').stop();
+	}
 
 	componentDidMount() {
-		$(React.findDOMNode(this)).owlCarousel(this.getOptions());
-	},
+		$(findDOMNode(this)).owlCarousel(this.getOptions());
+	}
 
 	componentWillReceiveProps(nextProps) {
-		$(React.findDOMNode(this)).data('owlCarousel').destroy();
-	},
+		$(findDOMNode(this)).data('owlCarousel').destroy();
+	}
 
 	componentDidUpdate(prevProps, prevState) {
-		$(React.findDOMNode(this)).owlCarousel(this.getOptions());
-	},
+		$(findDOMNode(this)).owlCarousel(this.getOptions());
+	}
 
 	componentWillUnmount() {
-		$(React.findDOMNode(this)).data('owlCarousel').destroy();
-	},
+		$(findDOMNode(this)).data('owlCarousel').destroy();
+	}
 
 	getOptions() {
 		const options = {};
@@ -169,10 +94,9 @@ const OwlCarousel = React.createClass({
 		});
 
 		return options;
-	},
+	}
 
 	render() {
-
 		const {
 			items,
 			itemsDesktop,
@@ -215,43 +139,92 @@ const OwlCarousel = React.createClass({
 			...props,
 		} = this.props;
 
-		touchDrag !== false
-			?	React.initializeTouchEvents(true)
-			: React.initializeTouchEvents(false);
-
 		return (
 			<div {...props}>
 				{children}
 			</div>
 		);
+	}
+}
+
+OwlCarousel.propTypes = {
+	children : PropTypes.oneOfType([
+		PropTypes.element,
+		PropTypes.arrayOf(PropTypes.element.isRequired),
+	]).isRequired,
+
+	style : PropTypes.object,
+	id : PropTypes.string,
+
+	items : PropTypes.number,
+	itemsCustom : PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number).isRequired),
+	itemsDesktop : PropTypes.arrayOf(PropTypes.number.isRequired),
+	itemsDesktopSmall : PropTypes.arrayOf(PropTypes.number.isRequired),
+	itemsTablet : PropTypes.arrayOf(PropTypes.number.isRequired),
+	itemsTabletSmall : PropTypes.arrayOf(PropTypes.number.isRequired),
+	itemsMobile : PropTypes.arrayOf(PropTypes.number.isRequired),
+	singleItem : PropTypes.bool,
+	itemsScaleUp : PropTypes.bool,
+
+	slideSpeed : PropTypes.number,
+	paginationSpeed : PropTypes.number,
+	rewindSpeed : PropTypes.number,
+
+	autoPlay : PropTypes.oneOfType([
+		PropTypes.bool,
+		PropTypes.number,
+	]),
+	stopOnHover : PropTypes.bool,
+
+	navigation : PropTypes.bool,
+	navigationText : PropTypes.arrayOf(PropTypes.string),
+	rewindNav : PropTypes.bool,
+	scrollPerPage : PropTypes.bool,
+
+	pagination : PropTypes.bool,
+	paginationNumbers : PropTypes.bool,
+
+	responsive : PropTypes.bool,
+	responsiveRefreshRate : PropTypes.number,
+	responsiveBaseWidth : function(props, propName, componentName) {
+		if (
+			props[propName] &&
+			!$(props[propName]).length
+		) {
+			return new Error('React-owl-carousel: the props `responsiveBaseWidth` needs jQuery selector.');
+		}
 	},
 
-	next() {
-		$(React.findDOMNode(this)).data('owlCarousel').next();
-	},
+	baseClass : PropTypes.string,
+	theme : PropTypes.string,
 
-	prev() {
-		$(React.findDOMNode(this)).data('owlCarousel').prev();
-	},
+	lazyLoad : PropTypes.bool,
+	lazyFollow : PropTypes.bool,
+	lazyEffect : PropTypes.bool,
 
-	// Go to x slide
-	goTo(x) {
-		$(React.findDOMNode(this)).data('owlCarousel').goTo(x);
-	},
+	autoHeight : PropTypes.bool,
 
-	// Go to x slide without slide animation
-	jumpTo(x) {
-		$(React.findDOMNode(this)).data('owlCarousel').jumpTo(x);
-	},
+	jsonPath : PropTypes.string,
+	jsonSuccess : PropTypes.func,
 
-	play() {
-		$(React.findDOMNode(this)).data('owlCarousel').play();
-	},
+	dragBeforeAnimFinish : PropTypes.bool,
+	mouseDrag : PropTypes.bool,
+	touchDrag : PropTypes.bool,
 
-	stop() {
-		$(React.findDOMNode(this)).data('owlCarousel').stop();
-	},
+	addClassActive : PropTypes.bool,
 
-});
+	//build-in transitionStyle: 'fade', 'backSlide', 'goDown', 'scaleUp'
+	transitionStyle : PropTypes.string,
+
+	beforeUpdate : PropTypes.func,
+	afterUpdate : PropTypes.func,
+	beforeInit : PropTypes.func,
+	afterInit : PropTypes.func,
+	beforeMove : PropTypes.func,
+	afterMove : PropTypes.func,
+	afterAction : PropTypes.func,
+	startDragging : PropTypes.func,
+	afterLazyLoad: PropTypes.func,
+};
 
 export default OwlCarousel;
