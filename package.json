@@ -57,8 +57,5 @@
     "webpack": "~1.12.12",
     "webpack-dev-middleware": "~1.5.1",
     "webpack-hot-middleware": "~2.6.2"
-  },
-  "dependencies": {
-    "jquery": "~2.1.4",
   }
 }
