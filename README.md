@@ -1,4 +1,4 @@
-# react-owl-carousel
+# react-owl-carousel  [![npm version](https://img.shields.io/npm/v/react-owl-carousel.svg?style=flat)](https://www.npmjs.com/package/react-owl-carousel)
 [React](http://facebook.github.io/react/) + [Owl Carousel 1.3](http://owlgraphic.com/owlcarousel/)
 
 ### 1.Getting Started
