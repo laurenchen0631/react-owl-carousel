@@ -1,8 +1,8 @@
 {
   "name": "react-owl-carousel",
-  "version": "0.13.0",
+  "version": "0.13.4",
   "description": "React.js + Owl Carousel",
-  "main": "lib/ReactOwlCarousel.js",
+  "main": "lib/OwlCarousel.js",
   "scripts": {
     "clean": "rimraf lib",
     "build:uncompressed": "cross-env NODE_ENV=production webpack --config webpack.config.build.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Fandora/react-owl-carousel.git"
+    "url": "git+https://github.com/seal789ie/react-owl-carousel.git"
   },
   "keywords": [
     "react",
@@ -22,10 +22,12 @@
   "author": "xhriman",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Fandora/react-owl-carousel/issues"
+    "url": "https://github.com/seal789ie/react-owl-carousel/issues"
   },
-  "homepage": "https://github.com/Fandora/react-owl-carousel#readme",
-
+  "homepage": "https://github.com/seal789ie/react-owl-carousel#readme",
+  "peerDependencies": {
+    "react": "~0.13.3"
+  },
   "devDependencies": {
     "autoprefixer": "~6.3.1",
     "babel-core": "~6.4.5",
@@ -49,16 +51,12 @@
     "node-sass": "~3.4.2",
     "postcss-loader": "~0.8.0",
     "rimraf": "~2.5.1",
+    "react": "~0.13.3",
     "sass-loader": "~3.1.2",
     "style-loader": "~0.13.0",
     "url-loader": "~0.5.7",
     "webpack": "~1.12.12",
     "webpack-dev-middleware": "~1.5.1",
     "webpack-hot-middleware": "~2.6.2"
-  },
-
-  "dependencies": {
-    "jquery": "~2.1.4",
-    "react": "~0.13.3"
   }
 }
