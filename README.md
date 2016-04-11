@@ -22,9 +22,9 @@ wrap your divs inside the OwlCarousel component
 
 ```jsx
 <OwlCarousel slideSpeed={300} navigation singleItem autoPlay >
-	<div className="item"><img src="/img/fullimage1.jpg" alt="The Last of us"/></div>
-	<div className="item"><img src="/img/fullimage2.jpg" alt="GTA V"/></div>
-	<div className="item"><img src="/img/fullimage3.jpg" alt="Mirror Edge"/></div>
+	<div><img src="/img/fullimage1.jpg" alt="The Last of us"/></div>
+	<div><img src="/img/fullimage2.jpg" alt="GTA V"/></div>
+	<div><img src="/img/fullimage3.jpg" alt="Mirror Edge"/></div>
 </OwlCarousel>
 ```
 
