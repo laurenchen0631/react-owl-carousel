@@ -3,9 +3,9 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 
 var config = {
-	devtool: 'eval',
+	devtool: 'source-map',
 	entry:  {
-		index: 'react-fabric.jsx'
+		index: './components/OwlCarousel.jsx'
 	},
 	resolve: {
 		extensions: ["", ".jsx", ".js"],
@@ -13,7 +13,7 @@ var config = {
 	output: {
 		path: path.join(__dirname, "lib"),
 		filename: "[name].js",
-		library: ["react-fabricjs"],
+		library: ["react-owl-carousel"],
 		libraryTarget: "umd"
 	},
 	externals: [
