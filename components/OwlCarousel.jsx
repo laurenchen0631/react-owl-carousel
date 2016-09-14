@@ -88,7 +88,7 @@ class OwlCarousel extends React.Component {
 		const options = {};
 
 		Owl_Carousel_Options.forEach(val => {
-			if (this.props[val]) {
+			if (this.props[val] !== undefined) {
 				options[val] = this.props[val];
 			}
 		});
