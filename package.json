@@ -49,6 +49,7 @@
     "webpack-dev-server": "^2.2.0"
   },
   "dependencies": {
-    "owl.carousel": "~2.2.0"
+    "owl.carousel": "~2.2.0",
+    "prop-types": "^15.5.8"
   }
 }
