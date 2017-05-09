@@ -80,7 +80,6 @@ class Demo extends React.Component {
                     Delete last Item
                 </button>
             </div>
-            
         );
     }
 }
