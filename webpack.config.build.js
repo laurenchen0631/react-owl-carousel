@@ -9,7 +9,7 @@ var config = {
 		OwlCarousel: './components/OwlCarousel.jsx'
 	},
 	resolve: {
-		extensions: ["", ".jsx", ".js"],
+		extensions: [".jsx", ".js"],
 	},
 	output: {
 		path: path.join(__dirname, "lib"),
@@ -36,46 +36,39 @@ var config = {
 		},
 	],
 	plugins: [
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.DefinePlugin({
-			'process.env': {
-				'NODE_ENV': JSON.stringify('production')
-			}
-		}),
-		new webpack.optimize.DedupePlugin(),
+		new webpack.ProvidePlugin({
+			jQuery: "jquery",
+			$: "jquery",
+			"window.jQuery": "jquery"
+		})
 	],
 	module: {
-		loaders: [
+		rules: [
 			{
-				test: /\.(js|jsx)$/,
-				loaders: ['babel'],
-				include: [path.join(__dirname, 'components'), path.join(__dirname, 'src')],
-				exclude: path.join(__dirname, 'node_modules'),
+				test: /\.(js|jsx)?$/,
+				use: [
+					'babel-loader',
+				],
+				exclude: /node_modules/,
+				include: [path.join(__dirname, 'components'), path.join(__dirname, 'example'),path.join(__dirname, 'lib')],
 			},
 			{
-				test: /\.css$/,
-				loaders: [
-					'style-loader',
-					'css-loader',
-					'postcss-loader',
-				],
-				include: [path.join(__dirname, 'src')],
+				test: /\.css$/, 
+				use: ["style-loader", "css-loader"],
+			},
+			{
+				test: /\.png$/, 
+				use: 'file-loader',
 			},
 		],
-
-		noParse: [],
-	},
-	postcss: function () {
-		return [autoprefixer];
 	},
 };
 
 if (minimize) {
 	config.plugins.push(
 		new webpack.optimize.UglifyJsPlugin({
-			compressor: {
-				warnings: false
-			}
+			sourceMap: true,
+			comments: false
 		})
 	);
 	config.devtool = 'source-map';

@@ -1,82 +1,148 @@
 # react-owl-carousel  [![npm version](https://img.shields.io/npm/v/react-owl-carousel.svg?style=flat)](https://www.npmjs.com/package/react-owl-carousel)
-[React](http://facebook.github.io/react/) + [Owl Carousel 1.3](http://owlgraphic.com/owlcarousel/)
+[React](http://facebook.github.io/react/) + [Owl Carousel 2.2](https://owlcarousel2.github.io/OwlCarousel2/)
 
 ### 1.Getting Started
-##### You need to load jQuery(1.7+) manually
-
-```html
-<!-- Load jQuery(1.7+) -->
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-
-<!-- Customized Style -->
-<link rel="stylesheet" href="owl-carousel/owl.theme.css">
-```
 
 ```jsx
 import React from 'react';
 import OwlCarousel from 'react-owl-carousel';
 ```
 
+
 ### 2.Set up your javascript
 wrap your divs inside the OwlCarousel component
 
 ```jsx
-<OwlCarousel slideSpeed={300} navigation singleItem autoPlay >
-	<div><img src="/img/fullimage1.jpg" alt="The Last of us"/></div>
-	<div><img src="/img/fullimage2.jpg" alt="GTA V"/></div>
-	<div><img src="/img/fullimage3.jpg" alt="Mirror Edge"/></div>
+<OwlCarousel 
+	className="owl-theme"
+	loop margin={10} nav
+>
+	<div class="item"><h4>1</h4></div>
+    <div class="item"><h4>2</h4></div>
+    <div class="item"><h4>3</h4></div>
+    <div class="item"><h4>4</h4></div>
+    <div class="item"><h4>5</h4></div>
+    <div class="item"><h4>6</h4></div>
+    <div class="item"><h4>7</h4></div>
+    <div class="item"><h4>8</h4></div>
+    <div class="item"><h4>9</h4></div>
+    <div class="item"><h4>10</h4></div>
+    <div class="item"><h4>11</h4></div>
+    <div class="item"><h4>12</h4></div>
 </OwlCarousel>
 ```
+className "owl-theme" is optional
 
-
-## OwlCarousel Props (Options of owl-carousel)
-
-[docs] (http://owlgraphic.com/owlcarousel/demos/one.html)
-
-| Name   |      Type      |  Descrption |
-|:----------:|:-------------:|:------|
-| items |  number | This variable allows you to set the maximum amount of items displayed at a time with the widest browser width |
-| itemsDesktop | array | This allows you to preset the number of slides visible with a particular browser width. The format is [x,y] whereby x=browser width and y=number of slides displayed. <br />For example [1199,4] means that if(window<=1199){show 4 slides per page} Alternatively use itemsDesktop: false to override these settings. |
-| itemsDesktopSmall | array | As above |
-| itemsTablet | array | As above |
-| itemsTabletSmall | array | As above |
-| itemsMobile | array | As above |
-| itemsCustom | array | array.	This allow you to add custom variations of items depending from the width. If this option is set, itemsDeskop, itemsDesktopSmall, itemsTablet, itemsMobile etc. are disabled. For better preview, order the arrays by screen size, but it's not mandatory. Don't forget to include the lowest available screen size, otherwise it will take the default one for screens lower than lowest available. <br />Example: [[0, 2], [400, 4], [700, 6], [1000, 8], [1200, 10], [1600, 16]] |
-| singleItem | boolean |  |
-| itemsScaleUp | boolean | Option to not stretch items when it is less than the supplied items |
-| slideSpeed | number | Slide speed in milliseconds. |
-| paginationSpeed | number | Pagination speed in milliseconds. |
-| rewindNav | boolean | Slide to first item. Use rewindSpeed to change animation speed. |
-| rewindSpeed | number | Rewind speed in milliseconds. |
-| autoPlay | boolean / number | Change to any integrer for example autoPlay : 5000 to play every 5 seconds. <br />If you set autoPlay: true default speed will be 5 seconds. |
-| stopOnHover | boolean | Stop autoplay on mouse hover |
-| navigation | boolean | Display "next" and "prev" buttons. |
-| navigationText | [array of element] / boolean | You can customize your own navigation. <br />To get empty buttons use navigationText : false. Also HTML can be used here. |
-| scrollPerPage | boolean | Scroll per page not per item. This affect next/prev buttons and mouse/touch dragging. |
-| pagination | boolean | Show pagination. |
-| paginationNumbers | boolean | Show numbers inside pagination buttons. |
-| responsive | boolean | Change that to "false" to disable resposive capabilities |
-| responsiveRefreshRate | number | Check window width changes every 200ms for responsive actions |
-| responsiveBaseWidth | jQuery selector | Owl Carousel check window for browser width changes. |
-| baseClass | string | Automaticly added class for base CSS styles. |
-| theme | string | Default Owl CSS styles for navigation and buttons. Change it to match your own theme. |
-| lazyLoad | boolean | Delays loading of images. Images outside of viewport won't be loaded before user scrolls to them. Great for mobile devices to speed up page loadings. IMG need special markup class="lazyOwl" and data-src="your img path". |
-| lazyFollow | boolean | When pagination used, it skips loading the images from pages that got skipped. It only loads the images that get displayed in viewport. If set to false, all images get loaded when pagination used. It is a sub setting of the lazy load function. |
-| lazyEffect | boolean / one of 'fade', 'backSlide', 'goDown', 'scaleUp' | Default is fadeIn on 400ms speed. Use false to remove that effect. |
-| autoHeight | boolean | Add height to owl-wrapper-outer so you can use diffrent heights on slides. Use it only for one item per page setting. |
-| jsonPath | string | Allows you to load directly from a JSON file. The JSON structure you use needs to match the owl JSON structure used here. To use custom JSON structure see jsonSuccess option. |
-| jsonSuccess | function | Success callback for $.getJSON build in into carousel. |
-| dragBeforeAnimFinish | boolean | Ignore whether a transition is done or not (only dragging).|
-| mouseDrag | boolean | Turn off/on mouse events. |
-| touchDrag | boolean | Turn off/on touch events. |
-| addClassActive | boolean | Add "active" classes on visible items. Works with any numbers of items on screen. |
-| transitionStyle | string | Add CSS3 transition style. Works only with one item on screen. |
+## Event
+| Name   |  Descrption |
+|:----------:|:------|
+| onInitialize | When the plugin initializes. |'
+| onInitialized  | When the plugin has initialized. |
+| onResize  | When the plugin gets resized. |
+| onResized | When the plugin has resized. |
+| onRefresh | When the internal state of the plugin needs update. |
+| onRefreshed | When the internal state of the plugin has updated. |
+| onDrag | When the dragging of an item is started. |
+| onDragged | When the dragging of an item has finished. |
+| onTranslate | When the translation of the stage starts. |
+| onTranslated | When the translation of the stage has finished. |
+| onChange | Parameter: property. When a property is going to change its value. |
+| onChanged | Parameter: property. When a property has changed its value. |
+| onLoadLazy | When lazy image loads. |
+| onLoadedLazy | When lazy image has loaded. |
+| onStopVideo | When video has unloaded. |
+| onPlayVideo | When video has loaded. |
 
 
 ## OwlCarousel Method
-*		next ()
-*		prev ()
-*		goTo (page)
-*		jumpTo (page)
-*		play ()
-*		stop ()
+*		next(speed)
+*		prev(speed)
+*		to(position, speed)
+*		create()
+*		destory()
+*		play(timeout, speed)
+*		stop()
+
+
+## OwlCarousel Class Props
+
+| Name   |      Type      |  Default | Descrption |
+|:----------:|:-------------:|:----:|:------|
+| refreshClass |  string | 'owl-refresh' | Class during refresh. |
+| loadingClass | string | 'owl-loading' | Class during load. |
+| loadedClass | string | 'owl-loaded' | Class after load. |
+| rtlClass | string | 'owl-rtl' | Class for right to left mode. |
+| dragClass | string | 'owl-drag' | Class for mouse drag mode. |
+| grabClass | string | 'owl-grab' | Class during mouse drag. |
+| stageClass | string | 'owl-stage' | Stage class. |
+| stageOuterClass | string | 'owl-stage-outer' | Stage outer class. |
+| navContainerClass | string | 'owl-nav' | Navigation container class. |
+| navClass | [string] | [&#x27;owl-prev&#x27;,&#x27;owl-next&#x27;] | Navigation buttons classes. |
+| controlsClass | string | 'owl-controls' | Controls container class - wrapper for navs and dots. |
+| dotClass | string | 'owl-dot' | Dot Class. |
+| dotsClass | string | 'owl-dots' | Dots container class. |
+| autoHeightClass | string | 'owl-height' | Auto height class. |
+| responsiveClass | string/bool | false | Optional helper class. Add '<responsiveClass>-<breakpoint>' class to main element. Can be used to stylize content on given breakpoint. |
+
+
+
+## OwlCarousel Options
+
+[offical docs](https://owlcarousel2.github.io/OwlCarousel2/docs/api-options.html)
+
+| Name   |      Type      |  Default | Descrption |
+|:----------:|:-------------:|:----:|:------|
+| items |  number | 3 | The number of items you want to see on the screen. |
+| margin |  number | 0 | margin-right(px) on item. |
+| loop  |  bool | false | Infinity loop. Duplicate last and first items to get loop illusion. |
+| center  |  bool | false  | Center item. Works well with even an odd number of items. |
+| mouseDrag  |  bool | true | Mouse drag enabled. |
+| touchDrag  |  bool | true | Touch drag enabled. |
+| pullDrag  |  bool | true | Stage pull to edge. |
+| freeDrag  |  bool | false | Item pull to edge. |
+| stagePadding |  number | 0 | Padding left and right on stage (can see neighbours). |
+| merge |  bool | false  | Merge items. Looking for data-merge='{number}' inside item.. |
+| mergeFit | bool | true | Fit merged items if screen is smaller than items value. |
+| autoWidth | bool | false | Set non grid content. Try using width style on divs. |
+| startPosition  |  number/string | 0 | Start position or URL Hash string like '#id'. |
+| URLhashListener  |  bool | false | Listen to url hash changes. data-hash on items is required. |
+| nav  |  bool | false | Show next/prev buttons. |
+| rewind |  bool | true | Go backwards when the boundary has reached. |
+| navText | [dom element] | [&#x27;next&#x27;,&#x27;prev&#x27;] | HTML allowed. |
+| navElement |  string | 'div' | DOM element type for a single directional navigation link. |
+| slideBy  |  number/string | 1 | Navigation slide by x. 'page' string can be set to slide by page. |
+| dots  |  bool | true | Show dots navigation. |
+| dotsEach | number/bool | false | Show dots each x item. |
+| dotData | bool | false | Used by data-dot content. |
+| lazyLoad | bool | false | Lazy load images. data-src and data-src-retina for highres. Also load images into background inline style if element is not \<img\> |
+| lazyContent | bool | false | lazyContent was introduced during beta tests but i removed it from the final release due to bad implementation. It is a nice options so i will work on it in the nearest feature. |
+| autoplay | bool | false | Autoplay. |
+| autoplayTimeout | number | 5000 | Autoplay interval timeout. |
+| autoplayHoverPause | bool | false | Pause on mouse hover. |
+| smartSpeed | number | 250 | Speed Calculate. More info to come.. |
+| fluidSpeed | number |  | Speed Calculate. More info to come.. |
+| autoplaySpeed | number/bool | false | autoplay speed. |
+| navSpeed | number/bool | false | Navigation speed. |
+| dotsSpeed | number/bool |  | Pagination speed. |
+| dragEndSpeed | number/bool | false | Drag end speed. |
+| callbacks | bool | true | **Enable callback events.** |
+| responsive | object | empty object | Object containing responsive options. Can be set to false to remove responsive capabilities. |
+| responsiveRefreshRate | number | 200 | Responsive refresh rate. |
+| responsiveBaseElement | dom element | window  | Set on any DOM element. If you care about non responsive browser (like ie8) then use it on main wrapper. This will prevent from crazy resizing. |
+| video | bool | false | Enable fetching YouTube/Vimeo/Vzaar videos. |
+| videoHeight | number/bool | false | Set height for videos. |
+| videoWidth | number/bool | false | Set width for videos. |
+| animateOut | string/bool | false | Class for CSS3 animation out. |
+| animateIn | string/bool | false | Class for CSS3 animation in. |
+| fallbackEasing | string | swing | Easing for CSS2 $.animate. |
+| info | function | false  | Callback to retrieve basic information (current item/pages/widths). Info function second parameter is Owl DOM object reference. |
+| nestedItemSelector | string | false | Use it if owl items are deep nested inside some generated content. E.g 'youritem'. Dont use dot before class name. |
+| itemElement | string | 'div' | DOM element type for owl-item. |
+| stageElement | string | 'div' | DOM element type for owl-stage. |
+| navContainer | string/bool | false  | Set your own container for nav. |
+| dotsContainer | string/bool | false | Set your own container for dots. |
+
+
+
+
+
