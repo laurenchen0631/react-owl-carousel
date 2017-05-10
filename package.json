@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf lib",
     "build:uncompressed": "cross-env NODE_ENV=production webpack --config webpack.config.build.js",
-    "build:minified": "cross-env NODE_ENV=production webpack --config webpack.config.build.js --minimize",
+    "build:minified": "cross-env NODE_ENV=production webpack --config webpack.config.build.js --env.minimize",
     "build": "npm run clean && npm run build:uncompressed && npm run build:minified ",
     "start": "webpack-dev-server"
   },

@@ -1,9 +1,9 @@
 example
 .babelrc
 .eslintrc
-devServer.js
+index.html
 webpack.config.build.js
-webpack.config.dev.js
+webpack.config.js
 node_modules
 *.zip
 .npmignore
