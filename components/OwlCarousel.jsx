@@ -124,7 +124,6 @@ class OwlCarousel extends Component {
 	}
 
     componentDidUpdate() {
-        console.log(this.options);
         this.owlCarousel = $(this.inst);
         this.owlCarousel.owlCarousel(this.options);
     }
