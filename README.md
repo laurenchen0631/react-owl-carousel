@@ -55,13 +55,13 @@ className "owl-theme" is optional
 
 
 ## OwlCarousel Method
-*		next(speed)
-*		prev(speed)
-*		to(position, speed)
-*		create()
-*		destroy()
-*		play(timeout, speed)
-*		stop()
+*	next(speed)
+*	prev(speed)
+*	to(position, speed)
+*	create()
+*	destroy()
+*	play(timeout, speed)
+*	stop()
 
 
 ## OwlCarousel Class Props
