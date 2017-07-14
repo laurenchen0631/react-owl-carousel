@@ -47,6 +47,7 @@ const Owl_Carousel_Options = {
     responsive: PropTypes.object,
     responsiveRefreshRate: PropTypes.number,
     responsiveBaseElement: PropTypes.element,
+    rtl: PropTypes.bool,
     video: PropTypes.bool,
     videoHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
     videoWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
@@ -99,7 +100,7 @@ const Owl_Carousel_Options = {
 class OwlCarousel extends Component {
     constructor(props, context) {
         super(props, context);
-        
+
         this.next = this.next.bind(this);
         this.prev = this.prev.bind(this);
         this.to = this.to.bind(this);
@@ -216,7 +217,7 @@ class OwlCarousel extends Component {
         } = this.propsWithoutOptions;
 
         return (
-            <div 
+            <div
                 className={`owl-carousel ${className}`}
                 ref={inst => this.inst = inst}
                 {...props}
