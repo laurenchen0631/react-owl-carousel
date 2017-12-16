@@ -304,6 +304,7 @@ export interface Props {
 }
 
 export interface ClassProps {
+	className?: string;
 	/**
 	 * Class during refresh.
 	 *
