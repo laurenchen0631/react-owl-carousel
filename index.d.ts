@@ -327,7 +327,7 @@ export interface ClassProps {
 	 *
 	 * Default: 'owl-rtl'
 	 */
-	rtlClass:? string;
+	rtlClass?: string;
 	/**
 	 * Class for mouse drag.
 	 *
