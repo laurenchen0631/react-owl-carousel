@@ -10,7 +10,7 @@ var config = {
 		extensions: [".jsx", ".js"],
 	},
 	output: {
-		path: path.join(__dirname, "lib"),
+		path: path.join(__dirname, "dist"),
 		filename: "[name].js",
 		library: ["react-owl-carousel"],
 		libraryTarget: "umd"
