@@ -70,7 +70,7 @@ const Owl_Carousel_Options = {
     stageClass: PropTypes.string,
     stageOuterClass: PropTypes.string,
     navContainerClass: PropTypes.string,
-    navClass: PropTypes.string,
+    navClass: PropTypes.arrayOf(PropTypes.string),
     controlsClass: PropTypes.string,
     dotClass: PropTypes.string,
     dotsClass: PropTypes.string,
