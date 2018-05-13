@@ -3,7 +3,6 @@ logs
 *.log
 dist
 .rpt2_cache
-!example/umd
 
 # Runtime data
 pids
@@ -30,3 +29,6 @@ build/Release
 node_modules
 lib
 *.zip
+
+umd
+!example/umd
