@@ -3,6 +3,7 @@
   "version": "2.3.0",
   "description": "React.js + Owl Carousel",
   "main": "umd/OwlCarousel.js",
+  "types": "umd/OwlCarousel.d.ts",
   "scripts": {
     "clean": "rimraf umd",
     "build:uncompressed": "cross-env NODE_ENV=development rollup -c",
