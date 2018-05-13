@@ -59,7 +59,7 @@ className "owl-theme" is optional
 *		prev(speed)
 *		to(position, speed)
 *		create()
-*		destory()
+*		destroy()
 *		play(timeout, speed)
 *		stop()
 
