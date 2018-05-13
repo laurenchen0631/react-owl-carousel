@@ -50,6 +50,8 @@ module.exports = {
                 test: /\.tsx?$/,
                 include: [
                     path.resolve(__dirname, './index.tsx'),
+                    path.resolve(__dirname, './src'),
+                    path.resolve(__dirname, '../src'),
                 ],
                 loader: 'awesome-typescript-loader',
                 options: {

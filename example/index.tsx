@@ -1,16 +1,15 @@
-import React, { PureComponent, ReactNode, createRef } from 'react';
+import React, { Component, ReactNode, createRef } from 'react';
 import ReactDOM from 'react-dom';
 import 'owl.carousel/dist/assets/owl.carousel.css';
-// import 'owl.carousel/dist/assets/owl.carousel.css';
-import OwlCarousel, { Options } from './umd/OwlCarousel';
-import 'jquery';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+import OwlCarousel, { Options } from './src/OwlCarousel';
 
 interface State {
     options: Options;
     items: ReactNode[];
 }
 
-class Example extends PureComponent<{}, State> {
+class Example extends Component<{}, State> {
     public state: State = {
         options: {
             loop: true,

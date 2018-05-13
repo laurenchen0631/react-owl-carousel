@@ -13,6 +13,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
     private container = createRef<HTMLDivElement>();
     private propsWithoutOptions: ComponentProps;
     private options: Options;
+    private children = createRef<HTMLDivElement>();
 
     constructor(props: OwlCarouselProps) {
         super(props);
@@ -23,15 +24,21 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
 
     public componentDidMount() {
         this.$ele = $(this.container.current!);
-        this.$ele.owlCarousel(this.options);
+        this.$ele.append(Array.from($(this.children.current!.children).clone()));
+        this.create();
     }
 
     public componentDidUpdate() {
+        this.destory();
+
         const [options, propsWithoutOptions] = filterOptions(this.props);
         this.options = options;
         this.propsWithoutOptions = propsWithoutOptions;
 
-        this.$ele!.owlCarousel(this.options);
+        this.$ele!.html('');
+        this.$ele!.append(Array.from($(this.children.current!.children).clone()));
+
+        this.create();
     }
 
     public next(speed: number | number[]) {
@@ -104,13 +111,16 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
         } = this.propsWithoutOptions;
 
         return (
-            <div
-                className={`owl-carousel ${className}`}
-                ref={this.container}
-                {...props}
-            >
-                {children}
-            </div>
+            <>
+                <div
+                    className={`owl-carousel ${className}`}
+                    ref={this.container}
+                    {...props}
+                />
+                <div ref={this.children} style={{ display: 'none' }}>
+                    {children}
+                </div>
+            </>
         );
     }
 }
