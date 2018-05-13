@@ -2,14 +2,12 @@
   "name": "react-owl-carousel",
   "version": "2.3.0",
   "description": "React.js + Owl Carousel",
-  "main": "index.js",
-  "module": "es/index.js",
+  "main": "umd/OwlCarousel.js",
   "scripts": {
     "clean": "rimraf umd",
     "build:uncompressed": "cross-env NODE_ENV=development rollup -c",
     "build:minified": "cross-env NODE_ENV=production rollup -c",
-    "build": "npm run clean && npm run build:uncompressed && npm run build:minified ",
-    "start": "webpack-dev-server"
+    "build": "npm run clean && npm run build:uncompressed && npm run build:minified "
   },
   "repository": {
     "type": "git",
