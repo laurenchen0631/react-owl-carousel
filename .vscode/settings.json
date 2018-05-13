@@ -1,0 +1,19 @@
+{
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/yarn.lock": true,
+        "**/dist": true,
+    },
+    "emmet.showExpandedAbbreviation": "never",
+    "tslint.enable": true,
+    "tslint.run": "onType",
+    "tslint.autoFixOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "typescript.locale": "en",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "workbench.colorCustomizations": {
+        "editorWarning.foreground": "#FFAA00"
+    }
+}

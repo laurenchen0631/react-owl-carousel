@@ -1,19 +1,40 @@
 # react-owl-carousel  [![npm version](https://img.shields.io/npm/v/react-owl-carousel.svg?style=flat)](https://www.npmjs.com/package/react-owl-carousel)
-[React](http://facebook.github.io/react/) + [Owl Carousel 2.2](https://owlcarousel2.github.io/OwlCarousel2/)
+[React](http://facebook.github.io/react/) + [Owl Carousel 2.3](https://owlcarousel2.github.io/OwlCarousel2/)
 
-### 1.Getting Started
+### 1. Getting Started
+
+* You need to inject a global window.jQuery first.
+
+e.g. webpack
+
+```js
+// ...
+plugins: [
+    // other plugins,
+    new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+    }),
+],
+//...
+```
+
+you can use html script tag to inject jquery as well.
+
+### 2. Set up your component
+wrap your divs inside the OwlCarousel component
 
 ```jsx
 import React from 'react';
 import OwlCarousel from 'react-owl-carousel';
-```
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 
+// ....
 
-### 2.Set up your javascript
-wrap your divs inside the OwlCarousel component
-
-```jsx
-<OwlCarousel 
+// className "owl-theme" is optional
+<OwlCarousel
 	className="owl-theme"
 	loop margin={10} nav
 >
@@ -31,7 +52,6 @@ wrap your divs inside the OwlCarousel component
     <div class="item"><h4>12</h4></div>
 </OwlCarousel>
 ```
-className "owl-theme" is optional
 
 ## Event
 | Name   |  Descrption |

@@ -1,0 +1,54 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended",
+        "tslint-eslint-rules",
+        "tslint-react",
+        "tslint-config-airbnb"
+    ],
+    "jsRules": {},
+    "rules": {
+        "one-line": false,
+        "indent": [true, "spaces"],
+        "ter-indent": [true, 4],
+        "object-literal-sort-keys": false,
+        "ordered-imports": false,
+        "import-name": false,
+        "interface-name": false,
+        "space-in-parens": false,
+        "no-unused-variable": true,
+        "no-console": [true, "log"],
+        "semicolon": true,
+        "object-shorthand-properties-first": false,
+        "prefer-array-literal": false,
+        "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
+        "no-shadowed-variable": [
+            true,
+            {
+              "class": true,
+              "enum": true,
+              "function": true,
+              "interface": false,
+              "namespace": true,
+              "typeAlias": true,
+              "typeParameter": true,
+              "temporalDeadZone": false
+            }
+        ],
+
+        "jsx-alignment": true,
+        "jsx-boolean-value": [true, "never"],
+        "jsx-equals-spacing": [true, "never"],
+        "jsx-curly-spacing": [false, "never"],
+        "jsx-key": true,
+        "jsx-no-bind": "warning",
+        "jsx-no-lambda": true,
+        "jsx-no-multiline-js": false,
+        "jsx-no-string-ref": true,
+        "jsx-self-close": true,
+        "jsx-wrap-multiline": true,
+
+        "brace-style": [true, "stroustrup"]
+    },
+    "rulesDirectory": []
+}
