@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "sourceMap": true,
+      "moduleResolution": "node",
+      "module": "esnext",
+      "jsx": "react",
+      "noEmitHelpers": true,
+      "importHelpers": true,
+      "strict": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noImplicitReturns": true,
+      "noEmitOnError": false
+    },
+    "files": [
+      "./index.tsx"
+    ],
+    "exclude": [
+      "./umd"
+    ]
+  }

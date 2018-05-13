@@ -15,7 +15,7 @@
     "noImplicitReturns": true,
     "noEmitOnError": false
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "include": [
+    "./src"
+  ],
 }

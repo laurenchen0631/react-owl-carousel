@@ -16,10 +16,10 @@ const config = {
     output: {
         name: 'ReactOwlCarousel',
         format: 'umd',
-        file: path.resolve(__dirname, 'umd/ReactOwlCarousel.js'),
+        file: path.resolve(__dirname, 'umd/OwlCarousel.js'),
         globals: {
-          react: 'React',
-          jquery: '$',
+            react: 'React',
+            jquery: '$',
         }
     },
     external: ['react', 'jquery'],
@@ -39,7 +39,7 @@ const config = {
 }
 
 if (!isDev) {
-    config.output.file = path.resolve(__dirname, 'umd/ReactOwlCarousel.min.js');
+    config.output.file = path.resolve(__dirname, 'umd/OwlCarousel.min.js');
     config.plugins.push(uglify());
 }
 

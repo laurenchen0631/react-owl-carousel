@@ -217,3 +217,5 @@ function filterOptions(item: Params): [Options, ComponentProps] {
 
     return [options as Options, propsWithoutOptions as ComponentProps];
 }
+
+export * from './options';

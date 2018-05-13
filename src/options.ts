@@ -86,7 +86,7 @@ export interface Options {
     onPlayVideo?: HandlerCallback;
 }
 
-type HandlerCallback = (...args: any[]) => void;
+export type HandlerCallback = (...args: any[]) => void;
 
 export type OnEvent = 'initialize.owl.carousel'
     | 'initialized.owl.carousel'

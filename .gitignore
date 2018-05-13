@@ -30,5 +30,3 @@ build/Release
 node_modules
 lib
 *.zip
-
-yarn.lock
