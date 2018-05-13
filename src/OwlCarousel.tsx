@@ -1,4 +1,5 @@
 import React, { Component, createRef, AllHTMLAttributes, ReactNode } from 'react';
+import $ from 'jquery';
 import { Options } from './options';
 
 import 'owl.carousel';
@@ -6,7 +7,7 @@ import 'owl.carousel';
 export type ComponentProps = Readonly<AllHTMLAttributes<HTMLDivElement> & { children: ReactNode }>;
 export type OwlCarouselProps = Options & ComponentProps;
 
-export default class OwlCarousel extends Component<OwlCarouselProps> {
+export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
     public $ele?: JQuery<HTMLElement>;
 
     private container = createRef<HTMLDivElement>();
@@ -76,6 +77,23 @@ export default class OwlCarousel extends Component<OwlCarouselProps> {
         if (!this.$ele) throw new Error('OwlCarousel is not created');
 
         this.$ele.trigger('destroy.owl.carousel');
+    }
+
+    public play(timeout: number, speed: number) {
+        if (!this.$ele) throw new Error('OwlCarousel is not created');
+
+        if (typeof(timeout) === 'number' && typeof(speed) === 'number') {
+            this.$ele.trigger('play.owl.autoplay', [timeout, speed]);
+        }
+        else {
+            this.$ele.trigger('play.owl.autoplay');
+        }
+    }
+
+    public stop() {
+        if (!this.$ele) throw new Error('OwlCarousel is not created');
+
+        this.$ele.trigger('stop.owl.autoplay');
     }
 
     public render() {
