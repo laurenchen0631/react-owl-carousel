@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "es5", "es2015"],
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "module": "umd",
+    "jsx": "react",
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noEmitOnError": false
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
