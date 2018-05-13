@@ -4,6 +4,7 @@ logs
 dist
 .rpt2_cache
 umd
+!example/umd
 
 # Runtime data
 pids

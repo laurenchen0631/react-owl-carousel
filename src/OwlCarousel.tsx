@@ -1,8 +1,10 @@
 import React, { Component, createRef, AllHTMLAttributes, ReactNode } from 'react';
-import $ from 'jquery';
+import jquery from 'jquery';
 import { Options } from './options';
 
 import 'owl.carousel';
+
+const $: typeof jquery = (window as any).jQuery;
 
 export type ComponentProps = Readonly<AllHTMLAttributes<HTMLDivElement> & { children: ReactNode }>;
 export type OwlCarouselProps = Options & ComponentProps;
@@ -24,7 +26,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
 
     public componentDidMount() {
         this.$ele = $(this.container.current!);
-        this.$ele.append(Array.from($(this.children.current!.children).clone()));
+        this.$ele!.append(Array.from($(this.children.current!.children)!.clone()));
         this.create();
     }
 
