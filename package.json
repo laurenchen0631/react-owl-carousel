@@ -2,7 +2,8 @@
   "name": "react-owl-carousel",
   "version": "2.2.0",
   "description": "React.js + Owl Carousel",
-  "main": "lib/OwlCarousel.js",
+  "main": "dist/OwlCarousel.js",
+  "types": "index.d.ts",
   "scripts": {
     "clean": "rimraf lib",
     "build:uncompressed": "cross-env NODE_ENV=production webpack --config webpack.config.build.js",
