@@ -3414,25 +3414,25 @@
         __extends(ReactOwlCarousel, _super);
         function ReactOwlCarousel(props) {
             var _this = _super.call(this, props) || this;
-            _this.container = React.createRef();
-            _this.children = React.createRef();
+            _this.containerRef = function (inst) {
+                _this.container = inst;
+            };
             var _a = filterOptions(_this.props), options = _a[0], propsWithoutOptions = _a[1];
             _this.options = options;
             _this.propsWithoutOptions = propsWithoutOptions;
             return _this;
         }
         ReactOwlCarousel.prototype.componentDidMount = function () {
-            this.$ele = $(this.container.current);
-            this.$ele.append(Array.from($(this.children.current.children).clone()));
+            this.$ele = $(this.container);
             this.create();
         };
-        ReactOwlCarousel.prototype.componentDidUpdate = function () {
+        ReactOwlCarousel.prototype.componentWillReceiveProps = function () {
             this.destory();
+        };
+        ReactOwlCarousel.prototype.componentDidUpdate = function () {
             var _a = filterOptions(this.props), options = _a[0], propsWithoutOptions = _a[1];
             this.options = options;
             this.propsWithoutOptions = propsWithoutOptions;
-            this.$ele.html('');
-            this.$ele.append(Array.from($(this.children.current.children).clone()));
             this.create();
         };
         ReactOwlCarousel.prototype.next = function (speed) {
@@ -3478,7 +3478,7 @@
         ReactOwlCarousel.prototype.play = function (timeout, speed) {
             if (!this.$ele)
                 throw new Error('OwlCarousel is not created');
-            if (typeof (timeout) === 'number' && typeof (speed) === 'number') {
+            if (typeof timeout === 'number' && typeof speed === 'number') {
                 this.$ele.trigger('play.owl.autoplay', [timeout, speed]);
             }
             else {
@@ -3491,10 +3491,8 @@
             this.$ele.trigger('stop.owl.autoplay');
         };
         ReactOwlCarousel.prototype.render = function () {
-            var _a = this.propsWithoutOptions, className = _a.className, children = _a.children, props = __rest(_a, ["className", "children"]);
-            return (React__default.createElement(React__default.Fragment, null,
-                React__default.createElement("div", __assign({ className: "owl-carousel " + className, ref: this.container }, props)),
-                React__default.createElement("div", { ref: this.children, style: { display: 'none' } }, children)));
+            var _a = this.propsWithoutOptions, className = _a.className, props = __rest(_a, ["className"]);
+            return (React__default.createElement("div", __assign({ className: "owl-carousel " + className, ref: this.containerRef }, props)));
         };
         return ReactOwlCarousel;
     }(React.Component));

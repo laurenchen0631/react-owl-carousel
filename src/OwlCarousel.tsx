@@ -1,4 +1,4 @@
-import React, { Component, createRef, AllHTMLAttributes, ReactNode } from 'react';
+import React, { Component, AllHTMLAttributes, ReactNode, Ref } from 'react';
 import jquery from 'jquery';
 import { Options } from './options';
 
@@ -11,11 +11,9 @@ export type OwlCarouselProps = Options & ComponentProps;
 
 export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
     public $ele?: JQuery<HTMLElement>;
-
-    private container = createRef<HTMLDivElement>();
+    private container?: HTMLDivElement | null;
     private propsWithoutOptions: ComponentProps;
     private options: Options;
-    private children = createRef<HTMLDivElement>();
 
     constructor(props: OwlCarouselProps) {
         super(props);
@@ -25,20 +23,18 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
     }
 
     public componentDidMount() {
-        this.$ele = $(this.container.current!);
-        this.$ele!.append(Array.from($(this.children.current!.children)!.clone()));
+        this.$ele = $(this.container!);
         this.create();
     }
 
-    public componentDidUpdate() {
+    public componentWillReceiveProps() {
         this.destory();
+    }
 
+    public componentDidUpdate() {
         const [options, propsWithoutOptions] = filterOptions(this.props);
         this.options = options;
         this.propsWithoutOptions = propsWithoutOptions;
-
-        this.$ele!.html('');
-        this.$ele!.append(Array.from($(this.children.current!.children).clone()));
 
         this.create();
     }
@@ -91,7 +87,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
     public play(timeout: number, speed: number) {
         if (!this.$ele) throw new Error('OwlCarousel is not created');
 
-        if (typeof(timeout) === 'number' && typeof(speed) === 'number') {
+        if (typeof timeout === 'number' && typeof speed === 'number') {
             this.$ele.trigger('play.owl.autoplay', [timeout, speed]);
         }
         else {
@@ -108,22 +104,20 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
     public render() {
         const {
             className,
-            children,
             ...props,
         } = this.propsWithoutOptions;
 
         return (
-            <>
-                <div
-                    className={`owl-carousel ${className}`}
-                    ref={this.container}
-                    {...props}
-                />
-                <div ref={this.children} style={{ display: 'none' }}>
-                    {children}
-                </div>
-            </>
+            <div
+                className={`owl-carousel ${className}`}
+                ref={this.containerRef}
+                {...props}
+            />
         );
+    }
+
+    private containerRef: Ref<HTMLDivElement> = (inst) => {
+        this.container = inst;
     }
 }
 
