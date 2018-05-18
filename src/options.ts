@@ -88,7 +88,8 @@ export interface Options {
 
 export type HandlerCallback = (...args: any[]) => void;
 
-export type OnEvent = 'initialize.owl.carousel'
+export type OnEvent =
+    | 'initialize.owl.carousel'
     | 'initialized.owl.carousel'
     | 'resize.owl.carousel'
     | 'resized.owl.carousel'
@@ -105,7 +106,8 @@ export type OnEvent = 'initialize.owl.carousel'
     | 'stop.owl.video'
     | 'play.owl.video';
 
-export type TriggerEvent = 'refresh.owl.carousel'
+export type TriggerEvent =
+    | 'refresh.owl.carousel'
     | 'next.owl.carousel'
     | 'prev.owl.carousel'
     | 'to.owl.carousel'
