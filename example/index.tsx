@@ -1,9 +1,9 @@
-import React, { Component, ReactNode, createRef } from 'react';
+import React, { Component, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import OwlCarousel, { Options } from 'react-owl-carousel';
-// import OwlCarousel, { Options } from './src/OwlCarousel';
+// import OwlCarousel, { Options } from './umd/OwlCarousel';
 
 interface State {
     options: Options;
@@ -14,7 +14,7 @@ class Example extends Component<{}, State> {
     public state: State = {
         options: {
             loop: true,
-            margin:10,
+            margin: 10,
             nav:true,
             responsive:{
                 0: {
@@ -45,13 +45,10 @@ class Example extends Component<{}, State> {
         ],
     };
 
-    private owlCarousel = createRef<OwlCarousel>();
-
     public render() {
         return (
             <div>
                 <OwlCarousel
-                    ref={this.owlCarousel}
                     className="owl-theme"
                     {...this.state.options}
                 >
