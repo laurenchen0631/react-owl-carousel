@@ -78,7 +78,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
         this.$ele.owlCarousel(options || this.options);
     }
 
-    public destory() {
+    public destroy() {
         if (!this.$ele) throw new Error('OwlCarousel is not created');
 
         this.$ele.trigger('destroy.owl.carousel');
