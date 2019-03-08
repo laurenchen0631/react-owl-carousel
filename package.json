@@ -1,6 +1,6 @@
 {
   "name": "react-owl-carousel",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "React.js + Owl Carousel",
   "main": "umd/OwlCarousel.js",
   "types": "umd/OwlCarousel.d.ts",
