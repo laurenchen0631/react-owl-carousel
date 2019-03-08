@@ -1792,7 +1792,7 @@
     	 */
     	$.fn.owlCarousel.Constructor = Owl;
 
-    })(window.Zepto || window.jQuery, window, document);
+    })((window && (window.Zepto || window.jQuery)), window, document);
     (function($, window, document, undefined) {
 
     	/**
