@@ -29,6 +29,7 @@ export interface Options {
     smartSpeed?: number | boolean;
     fluidSpeed?: number | boolean;
     autoplaySpeed?: number | boolean;
+    slideTransition?: string;
     navSpeed?: number | boolean;
     dotsSpeed?: number | boolean;
     dragEndSpeed?: number | boolean;

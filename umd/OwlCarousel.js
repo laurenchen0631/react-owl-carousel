@@ -254,7 +254,7 @@
     		responsiveBaseElement: window,
 
     		fallbackEasing: 'swing',
-    		slideTransition: '',
+    		slideTransition: 'linear',
 
     		info: false,
 
