@@ -24,6 +24,7 @@ export interface Options {
     dotData?: boolean;
     lazyLoad?: boolean;
     lazyContent?: boolean;
+    slideTransition?: string;
     autoplay?: boolean;
     autoplayTimeout?: number;
     autoplayHoverPause?: boolean;

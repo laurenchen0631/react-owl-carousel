@@ -152,6 +152,7 @@ const OPTIONS = new Set([
     'smartSpeed',
     'fluidSpeed',
     'autoplaySpeed',
+    'slideTransition',
     'navSpeed',
     'dotsSpeed',
     'dragEndSpeed',
