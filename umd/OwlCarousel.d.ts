@@ -1,6 +1,4 @@
-/// <reference types="react" />
 /// <reference types="jquery" />
-/// <reference types="owl.carousel" />
 import { Component, AllHTMLAttributes, ReactNode } from 'react';
 import { Options } from './options';
 import 'owl.carousel';
@@ -14,9 +12,9 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
     private propsWithoutOptions;
     private options;
     constructor(props: OwlCarouselProps);
-    componentDidMount(): void;
-    componentWillReceiveProps(): void;
-    componentDidUpdate(): void;
+    UNSAFE_componentDidMount(): void;
+    UNSAFE_componentWillReceiveProps(): void;
+    UNSAFE_componentDidUpdate(): void;
     next(speed: number | number[]): void;
     prev(speed: number | number[]): void;
     to(position: number, speed: number): void;

@@ -2,7 +2,7 @@
     "search.exclude": {
         "**/node_modules": true,
         "**/yarn.lock": true,
-        "**/dist": true,
+        "**/dist": true
     },
     "emmet.showExpandedAbbreviation": "never",
     "tslint.enable": true,
@@ -15,5 +15,6 @@
     "editor.insertSpaces": true,
     "workbench.colorCustomizations": {
         "editorWarning.foreground": "#FFAA00"
-    }
+    },
+    "prettier.configPath": "./.prettierrc"
 }

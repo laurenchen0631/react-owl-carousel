@@ -6,7 +6,9 @@ import 'owl.carousel';
 
 const $: typeof jquery = (window as any).jQuery;
 
-export type ComponentProps = Readonly<AllHTMLAttributes<HTMLDivElement> & { children: ReactNode }>;
+export type ComponentProps = Readonly<
+    AllHTMLAttributes<HTMLDivElement> & { children: ReactNode }
+>;
 export type OwlCarouselProps = Options & ComponentProps;
 
 export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
@@ -22,16 +24,19 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
         this.propsWithoutOptions = propsWithoutOptions;
     }
 
-    public componentDidMount() {
+    // tslint:disable-next-line: function-name
+    public UNSAFE_componentDidMount() {
         this.$ele = $(this.container!);
         this.create();
     }
 
-    public componentWillReceiveProps() {
+    // tslint:disable-next-line: function-name
+    public UNSAFE_componentWillReceiveProps() {
         this.destory();
     }
 
-    public componentDidUpdate() {
+    // tslint:disable-next-line: function-name
+    public UNSAFE_componentDidUpdate() {
         const [options, propsWithoutOptions] = filterOptions(this.props);
         this.options = options;
         this.propsWithoutOptions = propsWithoutOptions;
@@ -44,8 +49,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
 
         if (typeof speed === 'number') {
             this.$ele.trigger('next.owl.carousel', [speed]);
-        }
-        else {
+        } else {
             this.$ele.trigger('next.owl.carousel', speed);
         }
     }
@@ -55,8 +59,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
 
         if (typeof speed === 'number') {
             this.$ele.trigger('prev.owl.carousel', [speed]);
-        }
-        else {
+        } else {
             this.$ele.trigger('prev.owl.carousel', speed);
         }
     }
@@ -66,8 +69,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
 
         if (typeof position === 'number' && typeof speed === 'number') {
             this.$ele.trigger('to.owl.carousel', [position, speed]);
-        }
-        else {
+        } else {
             this.$ele.trigger('to.owl.carousel');
         }
     }
@@ -89,8 +91,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
 
         if (typeof timeout === 'number' && typeof speed === 'number') {
             this.$ele.trigger('play.owl.autoplay', [timeout, speed]);
-        }
-        else {
+        } else {
             this.$ele.trigger('play.owl.autoplay');
         }
     }
@@ -102,10 +103,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
     }
 
     public render() {
-        const {
-            className,
-            ...props,
-        } = this.propsWithoutOptions;
+        const { className, ...props } = this.propsWithoutOptions;
 
         return (
             <div
@@ -118,7 +116,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
 
     private containerRef: Ref<HTMLDivElement> = (inst) => {
         this.container = inst;
-    }
+    };
 }
 
 const OPTIONS = new Set([
@@ -208,15 +206,16 @@ const OPTIONS = new Set([
     'onPlayVideo',
 ]);
 
-interface Params { [key: string]: any; }
+interface Params {
+    [key: string]: any;
+}
 function filterOptions(item: Params): [Options, ComponentProps] {
     const options: Params = {};
     const propsWithoutOptions: Params = {};
     Object.keys(item).forEach((key) => {
         if (OPTIONS.has(key)) {
             options[key] = item[key];
-        }
-        else {
+        } else {
             propsWithoutOptions[key] = item[key];
         }
     });
