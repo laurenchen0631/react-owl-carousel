@@ -1,4 +1,6 @@
+/// <reference types="react" />
 /// <reference types="jquery" />
+/// <reference types="owl.carousel" />
 import { Component, AllHTMLAttributes, ReactNode } from 'react';
 import { Options } from './options';
 import 'owl.carousel';

@@ -24,18 +24,15 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
         this.propsWithoutOptions = propsWithoutOptions;
     }
 
-    // tslint:disable-next-line: function-name
     public UNSAFE_componentDidMount() {
         this.$ele = $(this.container!);
         this.create();
     }
 
-    // tslint:disable-next-line: function-name
     public UNSAFE_componentWillReceiveProps() {
         this.destory();
     }
 
-    // tslint:disable-next-line: function-name
     public UNSAFE_componentDidUpdate() {
         const [options, propsWithoutOptions] = filterOptions(this.props);
         this.options = options;

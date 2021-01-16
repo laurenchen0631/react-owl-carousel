@@ -3422,16 +3422,13 @@
             _this.propsWithoutOptions = propsWithoutOptions;
             return _this;
         }
-        // tslint:disable-next-line: function-name
         ReactOwlCarousel.prototype.UNSAFE_componentDidMount = function () {
             this.$ele = $(this.container);
             this.create();
         };
-        // tslint:disable-next-line: function-name
         ReactOwlCarousel.prototype.UNSAFE_componentWillReceiveProps = function () {
             this.destory();
         };
-        // tslint:disable-next-line: function-name
         ReactOwlCarousel.prototype.UNSAFE_componentDidUpdate = function () {
             var _a = filterOptions(this.props), options = _a[0], propsWithoutOptions = _a[1];
             this.options = options;
