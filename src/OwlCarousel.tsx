@@ -24,7 +24,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
         this.propsWithoutOptions = propsWithoutOptions;
     }
 
-    public UNSAFE_componentDidMount() {
+    public componentDidMount() {
         this.$ele = $(this.container!);
         this.create();
     }
@@ -33,7 +33,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
         this.destory();
     }
 
-    public UNSAFE_componentDidUpdate() {
+    public componentDidUpdate() {
         const [options, propsWithoutOptions] = filterOptions(this.props);
         this.options = options;
         this.propsWithoutOptions = propsWithoutOptions;
