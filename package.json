@@ -51,7 +51,7 @@
     },
     "dependencies": {
         "owl.carousel": "~2.3.4",
-        "react": "15",
-        "react-dom": "15"
+        "react": "16.14.0",
+        "react-dom": "16.14.0"
     }
 }

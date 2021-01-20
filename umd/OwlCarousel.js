@@ -3422,14 +3422,14 @@
             _this.propsWithoutOptions = propsWithoutOptions;
             return _this;
         }
-        ReactOwlCarousel.prototype.UNSAFE_componentDidMount = function () {
+        ReactOwlCarousel.prototype.componentDidMount = function () {
             this.$ele = $(this.container);
             this.create();
         };
         ReactOwlCarousel.prototype.UNSAFE_componentWillReceiveProps = function () {
             this.destory();
         };
-        ReactOwlCarousel.prototype.UNSAFE_componentDidUpdate = function () {
+        ReactOwlCarousel.prototype.componentDidUpdate = function () {
             var _a = filterOptions(this.props), options = _a[0], propsWithoutOptions = _a[1];
             this.options = options;
             this.propsWithoutOptions = propsWithoutOptions;

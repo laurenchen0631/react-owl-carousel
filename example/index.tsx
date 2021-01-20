@@ -2,8 +2,8 @@ import React, { Component, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import OwlCarousel, { Options } from 'react-owl-carousel';
-// import OwlCarousel, { Options } from './umd/OwlCarousel';
+// import OwlCarousel, { Options } from 'react-owl-carousel';
+import OwlCarousel, { Options } from './umd/OwlCarousel';
 
 interface State {
     options: Options;
