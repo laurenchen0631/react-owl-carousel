@@ -29,7 +29,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
         this.create();
     }
 
-    public componentWillReceiveProps() {
+    public UNSAFE_componentWillReceiveProps() {
         this.destory();
     }
 
