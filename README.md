@@ -79,8 +79,8 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 ## Event
 
 |     Name      | Descrption                                                         |
-| :-----------: | :----------------------------------------------------------------- | --- |
-| onInitialize  | When the plugin initializes.                                       | '   |
+| :-----------: | :----------------------------------------------------------------- |
+| onInitialize  | When the plugin initializes.                                       |
 | onInitialized | When the plugin has initialized.                                   |
 |   onResize    | When the plugin gets resized.                                      |
 |   onResized   | When the plugin has resized.                                       |
