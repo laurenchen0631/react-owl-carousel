@@ -3427,7 +3427,7 @@
             this.create();
         };
         ReactOwlCarousel.prototype.UNSAFE_componentWillReceiveProps = function () {
-            this.destory();
+            this.destroy();
         };
         ReactOwlCarousel.prototype.componentDidUpdate = function () {
             var _a = filterOptions(this.props), options = _a[0], propsWithoutOptions = _a[1];
@@ -3470,7 +3470,7 @@
                 throw new Error('OwlCarousel is not created');
             this.$ele.owlCarousel(options || this.options);
         };
-        ReactOwlCarousel.prototype.destory = function () {
+        ReactOwlCarousel.prototype.destroy = function () {
             if (!this.$ele)
                 throw new Error('OwlCarousel is not created');
             this.$ele.trigger('destroy.owl.carousel');
