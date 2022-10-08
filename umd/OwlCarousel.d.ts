@@ -21,7 +21,7 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
     prev(speed: number | number[]): void;
     to(position: number, speed: number): void;
     create(options?: Options): void;
-    destory(): void;
+    destroy(): void;
     play(timeout: number, speed: number): void;
     stop(): void;
     render(): JSX.Element;
