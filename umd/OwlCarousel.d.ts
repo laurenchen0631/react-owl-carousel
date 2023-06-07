@@ -15,7 +15,6 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
     private options;
     constructor(props: OwlCarouselProps);
     componentDidMount(): void;
-    UNSAFE_componentWillReceiveProps(): void;
     componentDidUpdate(): void;
     next(speed: number | number[]): void;
     prev(speed: number | number[]): void;
