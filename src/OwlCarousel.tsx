@@ -29,16 +29,13 @@ export default class ReactOwlCarousel extends Component<OwlCarouselProps> {
         this.create();
     }
 
-    public UNSAFE_componentWillReceiveProps() {
-        this.destory();
-    }
-
     public componentDidUpdate() {
         const [options, propsWithoutOptions] = filterOptions(this.props);
         this.options = options;
         this.propsWithoutOptions = propsWithoutOptions;
 
         this.create();
+        this.destory();
     }
 
     public next(speed: number | number[]) {

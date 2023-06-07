@@ -3426,14 +3426,12 @@
             this.$ele = $(this.container);
             this.create();
         };
-        ReactOwlCarousel.prototype.UNSAFE_componentWillReceiveProps = function () {
-            this.destory();
-        };
         ReactOwlCarousel.prototype.componentDidUpdate = function () {
             var _a = filterOptions(this.props), options = _a[0], propsWithoutOptions = _a[1];
             this.options = options;
             this.propsWithoutOptions = propsWithoutOptions;
             this.create();
+            this.destory();
         };
         ReactOwlCarousel.prototype.next = function (speed) {
             if (!this.$ele)
